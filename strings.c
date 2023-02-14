@@ -64,6 +64,80 @@ void string_manipulation()
     puts(user_input);
 }
 
+void strings_basics()
+{
+    char string[] = "Hello People";
+    char *string_ptr = string; // the pointer points to the first charater of the array
+    while (*string_ptr != '\0')
+    {
+        printf("%c", *string_ptr);
+        *string_ptr++;
+    }
+
+    // USING A POINTER TO STORE A STRING
+
+    // storing our string using an array
+    char str_arr[] = "This is the string array";
+
+    // storing the string using a pointer
+    char *str_ptr = "Hello pointer people";
+
+    // Creating a temporary pointer to iterate over the string
+    char *temp = str_ptr;
+    while (*temp != '\0')
+    {
+        printf("%c", *temp);
+        *temp++;
+    }
+
+    // ARRAY OF STRINGS
+    char strings[4][12] = {
+        "String",
+        "Topics",
+        "Pointers",
+        "World"};
+    // To avoid memory wastage created by the above two d array beacuse not all the strings need 12 charaters we are going to use a pointer
+    char *strs[4] = {"String", "Topics", "Pointers", "World"};
+
+    for (int i = 0; i < 4; i++)
+    {
+        int j = 0;
+        while (*(strs[i] + j) != '\0')
+        {
+            printf("%c", *(strs[i] + j));
+            j++;
+        }
+        printf("\n");
+    }
+}
+
+void user_input()
+{
+    // In this array we can store 5 subjects each with a length of 20 charaters
+    char subjects[5][20];
+    int i, j;
+    printf("Enter five different subjects\n");
+    for (i = 0; i < 5; i++)
+    {
+        scanf("%s", subjects[i]);
+    }
+    printf("The name of the subjects are \n");
+
+    // iterating over the five subjects
+    for (i = 0; i < 5; i++)
+    {
+        // initializing j=0 to indicate the first charater of the subject at index i
+        j = 0;
+        while (*(subjects[i] + j) != '\0')
+        {
+            printf("%c", *(subjects[i] + j));
+            j++;
+        }
+
+        // Beacause  j is at the end of the ith string.its indicates the size of the string
+        printf("<- size=%d\n", j);
+    }
+}
 int main()
 {
     // STRINGS
@@ -83,6 +157,8 @@ int main()
 
     // string manipulation
     string_manipulation();
+
+    strings_basics();
 
     return 0;
 }
