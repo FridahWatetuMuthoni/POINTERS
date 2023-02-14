@@ -46,20 +46,20 @@ free=> used to free memory from the heap
    void *= malloc(size of memory you want)
    void*p = malloc(4)
    int *p =malloc(sizeof(int)*3) => 12 bytes
-   int _p = (int_)malloc(sizeof(int)\*4) = >16 bytes
+   int *p = (int*)malloc(sizeof(int)*4) = >16 bytes
 
 2. CALLOC:
    void *= calloc(number of elements,size of memory you want)
-   int*p = (int \*) calloc(3,sizeof(int));
+   int*p = (int *) calloc(3,sizeof(int));
 
 3. REALLOC: it is used to the size of memory
    void *=realloc(pointer to the starting pint of the current memory block,size of the new block)
-   int*x = (int*) realloc(*p,sizeof(int)\*10)
+   int*x = (int*) realloc(*p,sizeof(int)*10)
    You can free the memory with realloc too
-   int _A = (int_)malloc(4 *sizeof(int));
+   int *A = (int_)malloc(4 *sizeof(int));
    int*B = (int *) realloc(*A,0)
    Using realloc as malloc
-   int _C = (int_)realloc(NULL,sizeof(int)\*8)
+   int *C = (int*)realloc(NULL,sizeof(int)*8)
 
 4. FREE:
    Any memory that is allocated remains that way during the life time
