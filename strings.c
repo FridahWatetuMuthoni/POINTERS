@@ -62,6 +62,11 @@ void string_manipulation()
     covert_string_to_uppercase(user_input);
     printf("The user input in uppercase\n");
     puts(user_input);
+
+    // TO UPPERCASE WITH strupr
+    char greeting[] = "hello";
+    strupr(greeting);
+    puts(greeting);
 }
 
 void strings_basics()

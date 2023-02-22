@@ -42,9 +42,9 @@ later call it inside the function body. Such passed functions are called callbac
 
 */
 
-int *multiplication(int *x, int *y)
+int multiplication(int *x, int *y)
 {
-    int *total = (*x) * (*y);
+    int total = (*x) * (*y);
     printf("x:%d, y: %d\n", *x, *y);
     printf("The total: %d\n", total);
     return total;
@@ -75,17 +75,10 @@ int main()
     // functional pointers
     int num1 = 80;
     int num2 = 20;
-    // function pointer declaration
-    // note that our pointer declaration has identical
-    // arguments as the function it will point to
-    // int (*func_pointer)(int, int);
-    int *func_pointer;
-    // pointing the pointer to functions memory address
-    // func_pointer = multiplication;
-    func_pointer = multiplication(&num1, &num2);
-    // calling the function using function pointer
-    // int multi = (*func_pointer)(&num1, &num2);
-    printf("Multiplication result is %d\n", func_pointer);
+    int (*func_pointer)(int *, int *);
+    func_pointer = multiplication;
+    int result = func_pointer(&num1, &num2);
+    printf("Multiplication result is %d\n", result);
 
     return 0;
 }
